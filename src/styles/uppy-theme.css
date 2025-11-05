@@ -18,7 +18,8 @@
 }
 
 /* Add Files Drop Zone */
-.uppy-Dashboard-AddFiles {
+.uppy-Dashboard-AddFiles,
+[data-uppy-drag-drop-supported=true] .uppy-Dashboard-AddFiles {
   border: none !important;
   border-radius: var(--radius);
   background-color: transparent !important;
@@ -27,10 +28,14 @@
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  margin: 0 !important;
 }
 
-.uppy-Dashboard-AddFiles:hover {
+.uppy-Dashboard-AddFiles:hover,
+[data-uppy-drag-drop-supported=true] .uppy-Dashboard-AddFiles:hover,
+[data-uppy-drag-drop-supported=true] .uppy-Dashboard-AddFiles.is-drag-drop-supported {
   background-color: hsl(var(--accent) / 0.5) !important;
+  border: none !important;
 }
 
 .uppy-Dashboard-AddFiles-info {
@@ -197,12 +202,17 @@
   background-color: transparent !important;
 }
 
-.dark .uppy-Dashboard-AddFiles {
+.dark .uppy-Dashboard-AddFiles,
+.dark [data-uppy-drag-drop-supported=true] .uppy-Dashboard-AddFiles {
   background-color: transparent !important;
+  border: none !important;
 }
 
-.dark .uppy-Dashboard-AddFiles:hover {
+.dark .uppy-Dashboard-AddFiles:hover,
+.dark [data-uppy-drag-drop-supported=true] .uppy-Dashboard-AddFiles:hover,
+.dark [data-uppy-drag-drop-supported=true] .uppy-Dashboard-AddFiles.is-drag-drop-supported {
   background-color: hsl(var(--accent) / 0.5) !important;
+  border: none !important;
 }
 
 .dark .uppy-Dashboard-Item {
