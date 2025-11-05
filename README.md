@@ -51,6 +51,27 @@ function MyForm() {
 - `touched` (boolean, optional): Whether the field has been touched (for validation)
 - `account` (number, optional): Account number to include in upload URL
 
+## Environment Variables
+
+This component requires AWS S3 credentials to be configured in your application's environment variables. Add the following to your `.env.local` file:
+
+```bash
+# AWS S3 Configuration
+NEXT_PUBLIC_AWS_S3_BUCKET=your-bucket-name
+NEXT_PUBLIC_AWS_REGION=us-east-1
+NEXT_PUBLIC_AWS_ACCESS_KEY_ID=your-access-key-id
+NEXT_PUBLIC_AWS_SECRET_ACCESS_KEY=your-secret-access-key
+```
+
+**Required Environment Variables:**
+
+- `NEXT_PUBLIC_AWS_S3_BUCKET`: The name of your S3 bucket where files will be uploaded
+- `NEXT_PUBLIC_AWS_REGION`: The AWS region where your S3 bucket is located (e.g., `us-east-1`, `us-west-2`)
+- `NEXT_PUBLIC_AWS_ACCESS_KEY_ID`: Your AWS access key ID with S3 write permissions
+- `NEXT_PUBLIC_AWS_SECRET_ACCESS_KEY`: Your AWS secret access key
+
+**Note:** These variables must be prefixed with `NEXT_PUBLIC_` to be accessible in the browser for client-side uploads.
+
 ## Styling
 
 **Important**: This component does NOT define its own CSS variables. It expects your application to provide them. This ensures the component seamlessly integrates with your existing theme without conflicts.
