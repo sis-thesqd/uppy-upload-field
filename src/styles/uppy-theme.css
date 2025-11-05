@@ -127,17 +127,62 @@
   color: hsl(var(--primary-foreground));
 }
 
+/* File items styling */
+.uppy-Dashboard-Item {
+  background-color: hsl(var(--card)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  border-radius: var(--radius) !important;
+}
+
+.uppy-Dashboard-Item-preview {
+  max-height: 100px !important;
+  border-radius: var(--radius) !important;
+  overflow: hidden !important;
+}
+
+.uppy-Dashboard-Item-previewInnerWrap {
+  background-color: hsl(var(--muted)) !important;
+  max-height: 100px !important;
+}
+
+.uppy-Dashboard-Item-previewImg,
+.uppy-Dashboard-Item-previewIconWrap {
+  max-height: 100px !important;
+  object-fit: contain !important;
+}
+
+.uppy-Dashboard-Item-name {
+  color: hsl(var(--foreground)) !important;
+}
+
+.uppy-Dashboard-Item-status {
+  color: hsl(var(--muted-foreground)) !important;
+}
+
+.uppy-Dashboard-Item-action--remove {
+  color: hsl(var(--muted-foreground)) !important;
+}
+
+.uppy-Dashboard-Item-action--remove:hover {
+  color: hsl(var(--destructive)) !important;
+}
+
 /* File item colors in dark mode */
+.dark .uppy-Dashboard-Item {
+  background-color: hsl(var(--card)) !important;
+  border-color: hsl(var(--border)) !important;
+}
+
 .dark .uppy-Dashboard-Item-previewInnerWrap {
-  background-color: hsl(var(--muted));
+  background-color: hsl(var(--muted)) !important;
 }
 
 .dark .uppy-Dashboard-Item-action--remove {
-  color: hsl(var(--foreground));
+  color: hsl(var(--muted-foreground)) !important;
 }
 
 .dark .uppy-Dashboard-Item-action--remove:hover {
-  color: hsl(var(--destructive));
+  color: hsl(var(--destructive)) !important;
 }
 
 /* Status bar */
@@ -191,4 +236,50 @@
 
 .dark .uppy-DashboardTab-btn:hover {
   background-color: hsl(var(--accent)) !important;
+}
+
+/* Files area styling */
+.uppy-Dashboard-files {
+  background-color: transparent !important;
+}
+
+.dark .uppy-Dashboard-files {
+  background-color: transparent !important;
+}
+
+/* Top bar styling (cancel, file count, add more) */
+.uppy-DashboardContent-bar {
+  background-color: transparent !important;
+  border-bottom: 1px solid hsl(var(--border)) !important;
+  padding: 0.75rem 1rem !important;
+}
+
+.uppy-DashboardContent-title {
+  color: hsl(var(--foreground)) !important;
+  font-size: 0.875rem !important;
+}
+
+.uppy-DashboardContent-back {
+  color: hsl(var(--primary)) !important;
+}
+
+.uppy-DashboardContent-addMore {
+  color: hsl(var(--primary)) !important;
+}
+
+.dark .uppy-DashboardContent-bar {
+  background-color: transparent !important;
+  border-bottom-color: hsl(var(--border)) !important;
+}
+
+.dark .uppy-DashboardContent-title {
+  color: hsl(var(--foreground)) !important;
+}
+
+.dark .uppy-DashboardContent-back {
+  color: hsl(var(--primary)) !important;
+}
+
+.dark .uppy-DashboardContent-addMore {
+  color: hsl(var(--primary)) !important;
 }
