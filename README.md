@@ -53,7 +53,9 @@ function MyForm() {
 
 ## Styling
 
-The component uses Tailwind CSS with CSS variables for theming. Make sure your project has Tailwind CSS configured and includes the following CSS variables in your theme:
+**Important**: This component does NOT define its own CSS variables. It expects your application to provide them. This ensures the component seamlessly integrates with your existing theme without conflicts.
+
+The component uses the following CSS variables from your application's theme:
 
 ```css
 :root {
