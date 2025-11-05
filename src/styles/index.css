@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 252 12% 21%;
+    --card: 0 0% 100%;
+    --card-foreground: 252 12% 21%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 252 12% 21%;
+    --primary: 251 76% 57%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 252 89% 84%;
+    --secondary-foreground: 252 12% 21%;
+    --muted: 252 33% 97%;
+    --muted-foreground: 252 12% 40%;
+    --accent: 252 33% 97%;
+    --accent-foreground: 252 12% 21%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 252 20% 93%;
+    --input: 252 20% 93%;
+    --ring: 251 76% 57%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 240 10% 4%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 8%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 8%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 251 76% 57%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 252 30% 20%;
+    --secondary-foreground: 252 89% 84%;
+    --muted: 240 5% 15%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 240 5% 15%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5% 15%;
+    --input: 240 5% 15%;
+    --ring: 251 76% 57%;
+  }
+}
+
+@import './uppy-theme.css';

@@ -1,0 +1,194 @@
+/* Uppy Dashboard Dark Mode Theming */
+.uppy-dashboard-container {
+  font-family: inherit;
+  width: 100%;
+}
+
+/* Light mode dashboard colors */
+.uppy-Dashboard-inner {
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: var(--radius);
+}
+
+.uppy-Dashboard-AddFiles {
+  border: 2px dashed hsl(var(--border)) !important;
+  border-radius: var(--radius);
+  background-color: transparent !important;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  padding-bottom: 1rem !important; /* Reduce padding */
+  padding-top: 2rem !important; /* Reduce padding */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.uppy-Dashboard-AddFiles:hover,
+.uppy-Dashboard-AddFiles.is-drag-drop-supported {
+  background-color: hsl(var(--accent) / 0.5) !important;
+  border-color: hsl(var(--primary)) !important;
+}
+
+.uppy-Dashboard-AddFiles-info {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.uppy-Dashboard-AddFiles-list {
+  margin-top: 0.75rem !important;
+  gap: 0.75rem !important;
+}
+
+.uppy-Dashboard-AddFiles-title {
+  color: hsl(var(--muted-foreground)) !important;
+  font-size: 0.875rem !important; /* Make text smaller */
+}
+
+.uppy-Dashboard-note {
+  color: hsl(var(--muted-foreground)) !important;
+  font-size: 0.8125rem !important;
+}
+
+/* Dark mode dashboard colors */
+.dark .uppy-Dashboard-inner {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.dark .uppy-Dashboard-AddFiles {
+  background-color: transparent !important;
+  border: 2px dashed hsl(var(--border)) !important;
+  padding: 1.5rem !important;
+}
+
+.dark .uppy-Dashboard-AddFiles:hover,
+.dark .uppy-Dashboard-AddFiles.is-drag-drop-supported {
+  background-color: hsl(var(--accent) / 0.5) !important;
+  border-color: hsl(var(--primary)) !important;
+}
+
+.dark .uppy-Dashboard-AddFiles-info {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.dark .uppy-Dashboard-AddFiles-list {
+  margin-top: 0.75rem !important;
+}
+
+.dark .uppy-Dashboard-AddFiles-title {
+  color: hsl(var(--muted-foreground)) !important;
+}
+
+.uppy-DashboardContent-bar {
+  background-color: transparent !important;
+  border-color: hsl(var(--border));
+}
+
+.dark .uppy-DashboardContent-bar {
+  background-color: transparent !important;
+  border-color: hsl(var(--border));
+}
+
+.dark .uppy-Dashboard-Item {
+  border-color: hsl(var(--border));
+}
+
+.dark .uppy-Dashboard-Item-name {
+  color: hsl(var(--foreground));
+}
+
+.dark .uppy-Dashboard-Item-status {
+  color: hsl(var(--muted-foreground));
+}
+
+/* Progress bar colors */
+.uppy-StatusBar-progress {
+  background-color: hsl(var(--primary));
+}
+
+.uppy-StatusBar.is-complete .uppy-StatusBar-progress {
+  background-color: hsl(var(--primary));
+}
+
+/* Button colors */
+.uppy-StatusBar-actionBtn--upload {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.uppy-StatusBar-actionBtn--upload:hover {
+  background-color: hsl(var(--primary));
+  opacity: 0.9;
+}
+
+.dark .uppy-StatusBar-actionBtn--upload {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+/* File item colors in dark mode */
+.dark .uppy-Dashboard-Item-previewInnerWrap {
+  background-color: hsl(var(--muted));
+}
+
+.dark .uppy-Dashboard-Item-action--remove {
+  color: hsl(var(--foreground));
+}
+
+.dark .uppy-Dashboard-Item-action--remove:hover {
+  color: hsl(var(--destructive));
+}
+
+/* Status bar */
+.uppy-StatusBar {
+  background-color: transparent !important;
+  border-top: 1px solid hsl(var(--border)) !important;
+  margin-top: 1rem;
+}
+
+.uppy-StatusBar-content {
+  color: hsl(var(--foreground));
+}
+
+/* Status bar in dark mode */
+.dark .uppy-StatusBar {
+  background-color: transparent !important;
+  border-top-color: hsl(var(--border)) !important;
+}
+
+.dark .uppy-StatusBar-content {
+  color: hsl(var(--foreground));
+}
+
+/* Informer (notifications) */
+.dark .uppy-Informer {
+  color: hsl(var(--foreground));
+}
+
+/* Browse button styling */
+.uppy-Dashboard-browse {
+  color: hsl(var(--primary)) !important;
+  font-weight: 500;
+}
+
+.uppy-Dashboard-browse:hover {
+  opacity: 0.8;
+}
+
+/* URL import button styling */
+.uppy-DashboardTab-btn {
+  color: hsl(var(--foreground)) !important;
+}
+
+.uppy-DashboardTab-btn:hover {
+  background-color: hsl(var(--accent)) !important;
+}
+
+.dark .uppy-DashboardTab-btn {
+  color: hsl(var(--foreground)) !important;
+}
+
+.dark .uppy-DashboardTab-btn:hover {
+  background-color: hsl(var(--accent)) !important;
+}
