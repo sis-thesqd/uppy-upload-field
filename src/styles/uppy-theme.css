@@ -8,6 +8,24 @@
   padding: 0.5rem;
 }
 
+/* Disable animations to prevent jitter */
+.uppy-Dashboard-inner,
+.uppy-Dashboard-files,
+.uppy-Dashboard-filesInner,
+.uppy-Dashboard-innerWrap,
+.uppy-Dashboard-AddFiles,
+.uppy-StatusBar,
+.uppy-Dashboard-Item {
+  transition: none !important;
+  animation: none !important;
+  will-change: auto !important;
+}
+
+/* Prevent resize observer jitter */
+.uppy-Dashboard-filesContainer {
+  contain: layout style !important;
+}
+
 /* Light mode dashboard colors */
 .uppy-Dashboard-inner {
   background-color: transparent !important;
@@ -201,8 +219,11 @@
   color: hsl(var(--destructive)) !important;
 }
 
-/* Status bar */
-.uppy-StatusBar {
+/* Status bar - force light background */
+.uppy-StatusBar,
+.uppy-StatusBar[aria-hidden="false"],
+.uppy-StatusBar:not(.dark) {
+  background: hsl(var(--muted) / 0.3) !important;
   background-color: hsl(var(--muted) / 0.3) !important;
   border-top: 1px solid hsl(var(--border)) !important;
   margin-top: 1rem;
@@ -210,8 +231,14 @@
   padding: 0.75rem 1rem !important;
 }
 
+/* Override any Uppy default dark backgrounds */
+:not(.dark) .uppy-StatusBar {
+  background: hsl(var(--muted) / 0.3) !important;
+  background-color: hsl(var(--muted) / 0.3) !important;
+}
+
 .uppy-StatusBar-content {
-  color: hsl(var(--foreground));
+  color: hsl(var(--foreground)) !important;
 }
 
 /* Right align upload button */
@@ -222,13 +249,15 @@
 }
 
 /* Status bar in dark mode */
-.dark .uppy-StatusBar {
+.dark .uppy-StatusBar,
+.dark .uppy-StatusBar[aria-hidden="false"] {
+  background: hsl(var(--card)) !important;
   background-color: hsl(var(--card)) !important;
   border-top-color: hsl(var(--border)) !important;
 }
 
 .dark .uppy-StatusBar-content {
-  color: hsl(var(--foreground));
+  color: hsl(var(--foreground)) !important;
 }
 
 /* Informer (notifications) */
