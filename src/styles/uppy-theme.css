@@ -2,6 +2,7 @@
 .uppy-dashboard-container {
   font-family: inherit;
   width: 100%;
+  min-height: 140px;
 }
 
 /* Light mode dashboard colors */
@@ -9,6 +10,8 @@
   background-color: transparent !important;
   border: none !important;
   border-radius: var(--radius);
+  min-height: 140px !important;
+  height: auto !important;
 }
 
 .uppy-Dashboard-AddFiles {
@@ -132,22 +135,30 @@
   background-color: hsl(var(--card)) !important;
   border: 1px solid hsl(var(--border)) !important;
   border-radius: var(--radius) !important;
+  margin-bottom: 0.5rem !important;
+  min-height: 60px !important;
 }
 
 .uppy-Dashboard-Item-preview {
-  max-height: 100px !important;
+  max-height: 80px !important;
+  min-height: 60px !important;
   border-radius: var(--radius) !important;
   overflow: hidden !important;
+  flex-shrink: 0 !important;
 }
 
 .uppy-Dashboard-Item-previewInnerWrap {
   background-color: hsl(var(--muted)) !important;
-  max-height: 100px !important;
+  max-height: 80px !important;
+  min-height: 60px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .uppy-Dashboard-Item-previewImg,
 .uppy-Dashboard-Item-previewIconWrap {
-  max-height: 100px !important;
+  max-height: 80px !important;
   object-fit: contain !important;
 }
 
@@ -241,10 +252,31 @@
 /* Files area styling */
 .uppy-Dashboard-files {
   background-color: transparent !important;
+  min-height: auto !important;
+  max-height: none !important;
+  padding: 1rem !important;
+}
+
+.uppy-Dashboard-filesInner {
+  min-height: auto !important;
+  max-height: none !important;
 }
 
 .dark .uppy-Dashboard-files {
   background-color: transparent !important;
+}
+
+/* Ensure AddFiles section doesn't overlap files */
+.uppy-Dashboard-AddFiles {
+  min-height: 120px !important;
+}
+
+/* When files are present, adjust layout */
+.uppy-Dashboard-innerWrap {
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 140px !important;
+  height: auto !important;
 }
 
 /* Top bar styling (cancel, file count, add more) */

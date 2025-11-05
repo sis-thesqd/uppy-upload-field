@@ -76,9 +76,9 @@ export function FileUploadField({
     uppy.use(Dashboard, {
       inline: true,
       target: dashboardContainerRef.current!,
-      height: 140,
+      height: 'auto',
       width: '100%',
-      hideProgressDetails: true, // Show progress details (size, time remaining)
+      hideProgressDetails: false, // Show progress details (size, time remaining)
       proudlyDisplayPoweredByUppy: false,
       hideUploadButton: false,
       hideRetryButton: false,
