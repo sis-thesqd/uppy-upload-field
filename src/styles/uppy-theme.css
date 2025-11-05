@@ -158,11 +158,17 @@
 
 /* StatusBar - Show progress during upload */
 .uppy-StatusBar {
+  position: relative !important;
   background: hsl(var(--muted) / 0.3) !important;
   border-top: 1px solid hsl(var(--border)) !important;
   margin-top: 0.75rem !important;
   border-radius: 0 0 var(--radius) var(--radius) !important;
   padding: 0.75rem 1rem !important;
+  min-height: 60px !important;
+  height: auto !important;
+  flex-direction: column !important;
+  gap: 0.5rem !important;
+  line-height: 1.5 !important;
 }
 
 /* Hide when no upload in progress */
@@ -170,19 +176,34 @@
   display: none !important;
 }
 
+.uppy-StatusBar::before {
+  display: none !important;
+}
+
 .uppy-StatusBar-content {
   color: hsl(var(--foreground)) !important;
   font-size: 0.875rem !important;
+  position: relative !important;
+  z-index: 2 !important;
+  padding: 0 !important;
 }
 
 .uppy-StatusBar-progress {
-  background-color: hsl(var(--primary)) !important;
-  height: 4px !important;
-  border-radius: 2px !important;
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  width: 100% !important;
+  background-color: hsl(var(--muted)) !important;
+  height: 6px !important;
+  border-radius: 3px !important;
+  overflow: hidden !important;
 }
 
 .uppy-StatusBar-progressIndicator {
   background-color: hsl(var(--primary)) !important;
+  height: 100% !important;
+  border-radius: 3px !important;
+  transition: width 0.3s ease !important;
 }
 
 /* Show only upload button */
