@@ -85,6 +85,7 @@ export function FileUploadField({
       hidePauseResumeButton: false,
       hideCancelButton: false,
       showRemoveButtonAfterComplete: true,
+      disableThumbnailGenerator: true, // Don't show image thumbnails
       note: config.helpText || undefined,
       theme: 'auto',
       locale: {

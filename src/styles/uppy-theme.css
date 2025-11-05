@@ -3,6 +3,9 @@
   font-family: inherit;
   width: 100%;
   min-height: 140px;
+  border: 2px dashed hsl(var(--border)) !important;
+  border-radius: var(--radius);
+  padding: 0.5rem;
 }
 
 /* Light mode dashboard colors */
@@ -15,7 +18,7 @@
 }
 
 .uppy-Dashboard-AddFiles {
-  border: 2px dashed hsl(var(--border)) !important;
+  border: none !important;
   border-radius: var(--radius);
   background-color: transparent !important;
   transition: border-color 0.2s ease, background-color 0.2s ease;
@@ -60,7 +63,7 @@
 
 .dark .uppy-Dashboard-AddFiles {
   background-color: transparent !important;
-  border: 2px dashed hsl(var(--border)) !important;
+  border: none !important;
   padding: 1.5rem !important;
 }
 
@@ -116,50 +119,52 @@
 
 /* Button colors */
 .uppy-StatusBar-actionBtn--upload {
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+  background-color: hsl(var(--primary)) !important;
+  color: hsl(var(--primary-foreground)) !important;
+  border-radius: calc(var(--radius) - 2px) !important;
+  padding: 0.5rem 1.25rem !important;
+  font-weight: 500 !important;
+  transition: opacity 0.2s ease !important;
+  border: none !important;
 }
 
 .uppy-StatusBar-actionBtn--upload:hover {
-  background-color: hsl(var(--primary));
-  opacity: 0.9;
+  background-color: hsl(var(--primary)) !important;
+  opacity: 0.9 !important;
 }
 
 .dark .uppy-StatusBar-actionBtn--upload {
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+  background-color: hsl(var(--primary)) !important;
+  color: hsl(var(--primary-foreground)) !important;
 }
 
 /* File items styling */
 .uppy-Dashboard-Item {
-  background-color: hsl(var(--card)) !important;
-  border: 1px solid hsl(var(--border)) !important;
+  background-color: transparent !important;
+  border: none !important;
   border-radius: var(--radius) !important;
   margin-bottom: 0.5rem !important;
-  min-height: 60px !important;
+  min-height: auto !important;
+  padding: 0.5rem 0 !important;
 }
 
+/* Hide thumbnail preview completely */
 .uppy-Dashboard-Item-preview {
-  max-height: 80px !important;
-  min-height: 60px !important;
-  border-radius: var(--radius) !important;
-  overflow: hidden !important;
-  flex-shrink: 0 !important;
+  display: none !important;
 }
 
 .uppy-Dashboard-Item-previewInnerWrap {
-  background-color: hsl(var(--muted)) !important;
-  max-height: 80px !important;
-  min-height: 60px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  display: none !important;
 }
 
 .uppy-Dashboard-Item-previewImg,
 .uppy-Dashboard-Item-previewIconWrap {
-  max-height: 80px !important;
-  object-fit: contain !important;
+  display: none !important;
+}
+
+/* Show file info prominently */
+.uppy-Dashboard-Item-fileInfo {
+  padding-left: 0 !important;
 }
 
 .uppy-Dashboard-Item-name {
@@ -198,18 +203,27 @@
 
 /* Status bar */
 .uppy-StatusBar {
-  background-color: transparent !important;
+  background-color: hsl(var(--muted) / 0.3) !important;
   border-top: 1px solid hsl(var(--border)) !important;
   margin-top: 1rem;
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: 0.75rem 1rem !important;
 }
 
 .uppy-StatusBar-content {
   color: hsl(var(--foreground));
 }
 
+/* Right align upload button */
+.uppy-StatusBar-actions {
+  display: flex !important;
+  justify-content: flex-end !important;
+  gap: 0.5rem !important;
+}
+
 /* Status bar in dark mode */
 .dark .uppy-StatusBar {
-  background-color: transparent !important;
+  background-color: hsl(var(--card)) !important;
   border-top-color: hsl(var(--border)) !important;
 }
 
@@ -281,9 +295,10 @@
 
 /* Top bar styling (cancel, file count, add more) */
 .uppy-DashboardContent-bar {
-  background-color: transparent !important;
+  background-color: hsl(var(--muted) / 0.3) !important;
   border-bottom: 1px solid hsl(var(--border)) !important;
   padding: 0.75rem 1rem !important;
+  border-radius: var(--radius) var(--radius) 0 0;
 }
 
 .uppy-DashboardContent-title {
@@ -300,7 +315,7 @@
 }
 
 .dark .uppy-DashboardContent-bar {
-  background-color: transparent !important;
+  background-color: hsl(var(--card)) !important;
   border-bottom-color: hsl(var(--border)) !important;
 }
 
