@@ -44,6 +44,9 @@ export function FileUploadField({
   const valueRef = useRef(value);
   const onChangeRef = useRef(onChange);
 
+  // Track files that were auto-removed after successful upload
+  const autoRemovedFilesRef = useRef<Set<string>>(new Set());
+
   // Detect app theme (not system preference)
   useEffect(() => {
     const detectTheme = () => {
@@ -155,12 +158,26 @@ export function FileUploadField({
         if (!currentValue.includes(uploadedUrl)) {
           onChangeRef.current([...currentValue, uploadedUrl]);
         }
+
+        // Remove the file from Uppy dashboard after successful upload
+        // This keeps the dashboard clean while preserving the URL in the form state
+        if (file?.id) {
+          autoRemovedFilesRef.current.add(file.id);
+          uppy.removeFile(file.id);
+        }
       }
     });
 
     // Handle file removal from Dashboard
     uppy.on('file-removed', (file) => {
-      // If file was successfully uploaded, remove its URL from form state
+      // Check if this was an auto-removal after successful upload
+      if (file.id && autoRemovedFilesRef.current.has(file.id)) {
+        // This was auto-removed, don't remove from form state
+        autoRemovedFilesRef.current.delete(file.id);
+        return;
+      }
+
+      // If file was successfully uploaded and manually removed, remove its URL from form state
       if (file.response?.body?.url) {
         const urlToRemove = file.response.body.url;
         const currentValue = valueRef.current;
