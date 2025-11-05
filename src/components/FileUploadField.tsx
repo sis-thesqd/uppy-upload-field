@@ -38,10 +38,30 @@ export function FileUploadField({
   const uppyRef = useRef<Uppy | null>(null);
   const dashboardContainerRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   // Use refs to avoid stale closures in Uppy event handlers
   const valueRef = useRef(value);
   const onChangeRef = useRef(onChange);
+
+  // Detect app theme (not system preference)
+  useEffect(() => {
+    const detectTheme = () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      setTheme(isDark ? 'dark' : 'light');
+    };
+
+    detectTheme();
+
+    // Watch for theme changes
+    const observer = new MutationObserver(detectTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     valueRef.current = value;
@@ -88,7 +108,7 @@ export function FileUploadField({
       disableThumbnailGenerator: true, // Don't show image thumbnails
       waitForThumbnailsBeforeUpload: false, // Don't wait for thumbnails
       note: config.helpText || undefined,
-      theme: 'auto',
+      theme: theme,
       locale: {
         strings: {
           dropPasteImportFiles: 'Drop files here, or browse',
@@ -162,7 +182,7 @@ export function FileUploadField({
     return () => {
       uppy.destroy();
     };
-  }, [id, maxFiles, maxSizeMB, acceptedTypes, account, config.helpText]);
+  }, [id, maxFiles, maxSizeMB, acceptedTypes, account, config.helpText, theme]);
 
   // Sync changes to value prop (for external updates)
   useEffect(() => {
