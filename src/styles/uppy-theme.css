@@ -1,56 +1,36 @@
-/* Uppy Dashboard Dark Mode Theming */
+/* Uppy Dashboard Theme - Clean, Minimal Styling */
+
+/* Container */
 .uppy-dashboard-container {
   font-family: inherit;
   width: 100%;
-  min-height: 140px;
   border: 2px dashed hsl(var(--border)) !important;
   border-radius: var(--radius);
   padding: 0.5rem;
 }
 
-/* Disable animations to prevent jitter */
-.uppy-Dashboard-inner,
-.uppy-Dashboard-files,
-.uppy-Dashboard-filesInner,
-.uppy-Dashboard-innerWrap,
-.uppy-Dashboard-AddFiles,
-.uppy-StatusBar,
-.uppy-Dashboard-Item {
-  transition: none !important;
-  animation: none !important;
-  will-change: auto !important;
-}
-
-/* Prevent resize observer jitter */
-.uppy-Dashboard-filesContainer {
-  contain: layout style !important;
-}
-
-/* Light mode dashboard colors */
+/* Dashboard Inner */
 .uppy-Dashboard-inner {
   background-color: transparent !important;
   border: none !important;
   border-radius: var(--radius);
-  min-height: 140px !important;
   height: auto !important;
 }
 
+/* Add Files Drop Zone */
 .uppy-Dashboard-AddFiles {
   border: none !important;
   border-radius: var(--radius);
   background-color: transparent !important;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
-  padding-bottom: 1rem !important; /* Reduce padding */
-  padding-top: 2rem !important; /* Reduce padding */
+  transition: background-color 0.2s ease;
+  padding: 2rem 1rem !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
 }
 
-.uppy-Dashboard-AddFiles:hover,
-.uppy-Dashboard-AddFiles.is-drag-drop-supported {
+.uppy-Dashboard-AddFiles:hover {
   background-color: hsl(var(--accent) / 0.5) !important;
-  border-color: hsl(var(--primary)) !important;
 }
 
 .uppy-Dashboard-AddFiles-info {
@@ -58,14 +38,9 @@
   margin: 0 !important;
 }
 
-.uppy-Dashboard-AddFiles-list {
-  margin-top: 0.75rem !important;
-  gap: 0.75rem !important;
-}
-
 .uppy-Dashboard-AddFiles-title {
   color: hsl(var(--muted-foreground)) !important;
-  font-size: 0.875rem !important; /* Make text smaller */
+  font-size: 0.875rem !important;
 }
 
 .uppy-Dashboard-note {
@@ -73,124 +48,81 @@
   font-size: 0.8125rem !important;
 }
 
-/* Dark mode dashboard colors */
-.dark .uppy-Dashboard-inner {
+/* Browse button */
+.uppy-Dashboard-browse {
+  color: hsl(var(--primary)) !important;
+  font-weight: 500;
+}
+
+.uppy-Dashboard-browse:hover {
+  opacity: 0.8;
+}
+
+/* Style Uppy's built-in file list */
+.uppy-Dashboard-files {
   background-color: transparent !important;
-  border: none !important;
+  padding: 0.5rem !important;
+  transition: none !important;
+  animation: none !important;
 }
 
-.dark .uppy-Dashboard-AddFiles {
+.uppy-Dashboard-filesInner {
   background-color: transparent !important;
-  border: none !important;
-  padding: 1.5rem !important;
+  transition: none !important;
+  animation: none !important;
 }
 
-.dark .uppy-Dashboard-AddFiles:hover,
-.dark .uppy-Dashboard-AddFiles.is-drag-drop-supported {
-  background-color: hsl(var(--accent) / 0.5) !important;
-  border-color: hsl(var(--primary)) !important;
+.uppy-Dashboard-filesContainer {
+  transition: none !important;
+  animation: none !important;
+  contain: layout style !important;
 }
 
-.dark .uppy-Dashboard-AddFiles-info {
+/* File items with card styling */
+.uppy-Dashboard-Item {
+  background-color: hsl(var(--card)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  border-radius: var(--radius) !important;
+  padding: 0.75rem 1rem !important;
+  margin-bottom: 0.5rem !important;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05) !important;
+  transition: none !important;
+  animation: none !important;
+  min-height: auto !important;
+  height: auto !important;
+}
+
+/* Completely hide and remove thumbnail from layout */
+.uppy-Dashboard-Item-preview,
+.uppy-Dashboard-Item-previewInnerWrap,
+.uppy-Dashboard-Item-previewImg,
+.uppy-Dashboard-Item-previewIconWrap {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
   padding: 0 !important;
   margin: 0 !important;
 }
 
-.dark .uppy-Dashboard-AddFiles-list {
-  margin-top: 0.75rem !important;
-}
-
-.dark .uppy-Dashboard-AddFiles-title {
-  color: hsl(var(--muted-foreground)) !important;
-}
-
-.uppy-DashboardContent-bar {
-  background-color: transparent !important;
-  border-color: hsl(var(--border));
-}
-
-.dark .uppy-DashboardContent-bar {
-  background-color: transparent !important;
-  border-color: hsl(var(--border));
-}
-
-.dark .uppy-Dashboard-Item {
-  border-color: hsl(var(--border));
-}
-
-.dark .uppy-Dashboard-Item-name {
-  color: hsl(var(--foreground));
-}
-
-.dark .uppy-Dashboard-Item-status {
-  color: hsl(var(--muted-foreground));
-}
-
-/* Progress bar colors */
-.uppy-StatusBar-progress {
-  background-color: hsl(var(--primary));
-}
-
-.uppy-StatusBar.is-complete .uppy-StatusBar-progress {
-  background-color: hsl(var(--primary));
-}
-
-/* Button colors */
-.uppy-StatusBar-actionBtn--upload {
-  background-color: hsl(var(--primary)) !important;
-  color: hsl(var(--primary-foreground)) !important;
-  border-radius: calc(var(--radius) - 2px) !important;
-  padding: 0.5rem 1.25rem !important;
-  font-weight: 500 !important;
-  transition: opacity 0.2s ease !important;
-  border: none !important;
-}
-
-.uppy-StatusBar-actionBtn--upload:hover {
-  background-color: hsl(var(--primary)) !important;
-  opacity: 0.9 !important;
-}
-
-.dark .uppy-StatusBar-actionBtn--upload {
-  background-color: hsl(var(--primary)) !important;
-  color: hsl(var(--primary-foreground)) !important;
-}
-
-/* File items styling */
-.uppy-Dashboard-Item {
-  background-color: transparent !important;
-  border: none !important;
-  border-radius: var(--radius) !important;
-  margin-bottom: 0.5rem !important;
-  min-height: auto !important;
-  padding: 0.5rem 0 !important;
-}
-
-/* Hide thumbnail preview completely */
-.uppy-Dashboard-Item-preview {
-  display: none !important;
-}
-
-.uppy-Dashboard-Item-previewInnerWrap {
-  display: none !important;
-}
-
-.uppy-Dashboard-Item-previewImg,
-.uppy-Dashboard-Item-previewIconWrap {
-  display: none !important;
-}
-
-/* Show file info prominently */
 .uppy-Dashboard-Item-fileInfo {
+  padding-left: 0 !important;
+  flex: 1 !important;
+}
+
+.uppy-Dashboard-Item-fileInfoAndButtons {
+  width: 100% !important;
   padding-left: 0 !important;
 }
 
 .uppy-Dashboard-Item-name {
   color: hsl(var(--foreground)) !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
 }
 
 .uppy-Dashboard-Item-status {
   color: hsl(var(--muted-foreground)) !important;
+  font-size: 0.75rem !important;
 }
 
 .uppy-Dashboard-Item-action--remove {
@@ -201,14 +133,89 @@
   color: hsl(var(--destructive)) !important;
 }
 
-/* File item colors in dark mode */
+/* Hide entire StatusBar but extract and show only the button */
+.uppy-StatusBar {
+  all: unset !important;
+  display: block !important;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  position: relative !important;
+}
+
+.uppy-StatusBar::before,
+.uppy-StatusBar::after {
+  display: none !important;
+}
+
+.uppy-StatusBar-content {
+  display: none !important;
+}
+
+.uppy-StatusBar-status {
+  display: none !important;
+}
+
+.uppy-StatusBar-statusPrimary {
+  display: none !important;
+}
+
+.uppy-StatusBar-statusSecondary {
+  display: none !important;
+}
+
+.uppy-StatusBar-progress {
+  display: none !important;
+}
+
+/* Show only upload button */
+.uppy-StatusBar-actions {
+  display: flex !important;
+  justify-content: flex-end !important;
+  padding: 0 !important;
+  margin: 0.75rem 0 0 0 !important;
+  background: none !important;
+  border: none !important;
+}
+
+.uppy-StatusBar-actionBtn--upload {
+  background-color: hsl(var(--primary)) !important;
+  color: hsl(var(--primary-foreground)) !important;
+  border-radius: calc(var(--radius) - 2px) !important;
+  padding: 0.5rem 1.25rem !important;
+  font-weight: 500 !important;
+  border: none !important;
+}
+
+.uppy-StatusBar-actionBtn--upload:hover {
+  opacity: 0.9;
+}
+
+/* Dark mode overrides */
+.dark .uppy-Dashboard-inner {
+  background-color: transparent !important;
+}
+
+.dark .uppy-Dashboard-AddFiles {
+  background-color: transparent !important;
+}
+
+.dark .uppy-Dashboard-AddFiles:hover {
+  background-color: hsl(var(--accent) / 0.5) !important;
+}
+
 .dark .uppy-Dashboard-Item {
   background-color: hsl(var(--card)) !important;
   border-color: hsl(var(--border)) !important;
 }
 
-.dark .uppy-Dashboard-Item-previewInnerWrap {
-  background-color: hsl(var(--muted)) !important;
+.dark .uppy-Dashboard-Item-name {
+  color: hsl(var(--foreground)) !important;
+}
+
+.dark .uppy-Dashboard-Item-status {
+  color: hsl(var(--muted-foreground)) !important;
 }
 
 .dark .uppy-Dashboard-Item-action--remove {
@@ -217,145 +224,4 @@
 
 .dark .uppy-Dashboard-Item-action--remove:hover {
   color: hsl(var(--destructive)) !important;
-}
-
-/* Status bar - force light background */
-.uppy-StatusBar,
-.uppy-StatusBar[aria-hidden="false"],
-.uppy-StatusBar:not(.dark) {
-  background: hsl(var(--muted) / 0.3) !important;
-  background-color: hsl(var(--muted) / 0.3) !important;
-  border-top: 1px solid hsl(var(--border)) !important;
-  margin-top: 1rem;
-  border-radius: 0 0 var(--radius) var(--radius);
-  padding: 0.75rem 1rem !important;
-}
-
-/* Override any Uppy default dark backgrounds */
-:not(.dark) .uppy-StatusBar {
-  background: hsl(var(--muted) / 0.3) !important;
-  background-color: hsl(var(--muted) / 0.3) !important;
-}
-
-.uppy-StatusBar-content {
-  color: hsl(var(--foreground)) !important;
-}
-
-/* Right align upload button */
-.uppy-StatusBar-actions {
-  display: flex !important;
-  justify-content: flex-end !important;
-  gap: 0.5rem !important;
-}
-
-/* Status bar in dark mode */
-.dark .uppy-StatusBar,
-.dark .uppy-StatusBar[aria-hidden="false"] {
-  background: hsl(var(--card)) !important;
-  background-color: hsl(var(--card)) !important;
-  border-top-color: hsl(var(--border)) !important;
-}
-
-.dark .uppy-StatusBar-content {
-  color: hsl(var(--foreground)) !important;
-}
-
-/* Informer (notifications) */
-.dark .uppy-Informer {
-  color: hsl(var(--foreground));
-}
-
-/* Browse button styling */
-.uppy-Dashboard-browse {
-  color: hsl(var(--primary)) !important;
-  font-weight: 500;
-}
-
-.uppy-Dashboard-browse:hover {
-  opacity: 0.8;
-}
-
-/* URL import button styling */
-.uppy-DashboardTab-btn {
-  color: hsl(var(--foreground)) !important;
-}
-
-.uppy-DashboardTab-btn:hover {
-  background-color: hsl(var(--accent)) !important;
-}
-
-.dark .uppy-DashboardTab-btn {
-  color: hsl(var(--foreground)) !important;
-}
-
-.dark .uppy-DashboardTab-btn:hover {
-  background-color: hsl(var(--accent)) !important;
-}
-
-/* Files area styling */
-.uppy-Dashboard-files {
-  background-color: transparent !important;
-  min-height: auto !important;
-  max-height: none !important;
-  padding: 1rem !important;
-}
-
-.uppy-Dashboard-filesInner {
-  min-height: auto !important;
-  max-height: none !important;
-}
-
-.dark .uppy-Dashboard-files {
-  background-color: transparent !important;
-}
-
-/* Ensure AddFiles section doesn't overlap files */
-.uppy-Dashboard-AddFiles {
-  min-height: 120px !important;
-}
-
-/* When files are present, adjust layout */
-.uppy-Dashboard-innerWrap {
-  display: flex !important;
-  flex-direction: column !important;
-  min-height: 140px !important;
-  height: auto !important;
-}
-
-/* Top bar styling (cancel, file count, add more) */
-.uppy-DashboardContent-bar {
-  background-color: hsl(var(--muted) / 0.3) !important;
-  border-bottom: 1px solid hsl(var(--border)) !important;
-  padding: 0.75rem 1rem !important;
-  border-radius: var(--radius) var(--radius) 0 0;
-}
-
-.uppy-DashboardContent-title {
-  color: hsl(var(--foreground)) !important;
-  font-size: 0.875rem !important;
-}
-
-.uppy-DashboardContent-back {
-  color: hsl(var(--primary)) !important;
-}
-
-.uppy-DashboardContent-addMore {
-  color: hsl(var(--primary)) !important;
-}
-
-.dark .uppy-DashboardContent-bar {
-  background-color: hsl(var(--card)) !important;
-  border-bottom-color: hsl(var(--border)) !important;
-}
-
-.dark .uppy-DashboardContent-title {
-  color: hsl(var(--foreground)) !important;
-}
-
-.dark .uppy-DashboardContent-back {
-  color: hsl(var(--primary)) !important;
-}
-
-.dark .uppy-DashboardContent-addMore {
-  color: hsl(var(--primary)) !important;
 }

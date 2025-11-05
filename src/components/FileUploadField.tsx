@@ -86,11 +86,16 @@ export function FileUploadField({
       hideCancelButton: false,
       showRemoveButtonAfterComplete: true,
       disableThumbnailGenerator: true, // Don't show image thumbnails
+      waitForThumbnailsBeforeUpload: false, // Don't wait for thumbnails
       note: config.helpText || undefined,
       theme: 'auto',
       locale: {
         strings: {
           dropPasteImportFiles: 'Drop files here, or browse',
+          xFilesSelected: {
+            0: '',
+            1: '',
+          },
         },
       },
     });
@@ -175,50 +180,48 @@ export function FileUploadField({
         className="uppy-dashboard-container"
       />
 
-      {/* Completed Files List (outside Dashboard) */}
+      {/* Completed Files List with shadcn Card Styling */}
       {value.length > 0 && (
-        <div className="space-y-2 px-2">
-          <div className="space-y-2">
-            {value.map((url, index) => {
-              const fileName = decodeURIComponent(url.split('/').pop() || `File ${index + 1}`);
-              // Extract original filename from UUID-prefixed name
-              const displayName = fileName.replace(/^[a-f0-9-]{36}-/i, '');
+        <div className="space-y-2">
+          {value.map((url, index) => {
+            const fileName = decodeURIComponent(url.split('/').pop() || `File ${index + 1}`);
+            // Extract original filename from UUID-prefixed name
+            const displayName = fileName.replace(/^[a-f0-9-]{36}-/i, '');
 
-              return (
-                <div
-                  key={url}
-                  className="flex items-center justify-between gap-3 py-2 px-3 rounded-lg border border-border bg-card hover:bg-accent/50 transition-colors"
-                >
-                  <div className="flex-1 min-w-0">
-                    <span className="text-sm font-medium text-foreground truncate block">
-                      {displayName}
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <a
-                      href={url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-foreground transition-colors p-1"
-                      title="Open file in new tab"
-                    >
-                      <ExternalLink className="h-4 w-4" />
-                    </a>
-                    <button
-                      type="button"
-                      onClick={() => onChange(value.filter(u => u !== url))}
-                      className="text-muted-foreground hover:text-foreground transition-colors p-1"
-                      disabled={disabled}
-                      title="Remove file"
-                    >
-                      <X className="h-4 w-4" />
-                    </button>
-                  </div>
+            return (
+              <div
+                key={url}
+                className="rounded-lg border border-border bg-card text-card-foreground shadow-sm flex items-center justify-between gap-3 py-3 px-4 hover:bg-accent/50 transition-colors"
+              >
+                <div className="flex-1 min-w-0">
+                  <span className="text-sm font-medium truncate block">
+                    {displayName}
+                  </span>
                 </div>
-              );
-            })}
-          </div>
+
+                <div className="flex items-center gap-2">
+                  <a
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-foreground transition-colors p-1 rounded"
+                    title="Open file in new tab"
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => onChange(value.filter(u => u !== url))}
+                    className="text-muted-foreground hover:text-destructive transition-colors p-1 rounded"
+                    disabled={disabled}
+                    title="Remove file"
+                  >
+                    <X className="h-4 w-4" />
+                  </button>
+                </div>
+              </div>
+            );
+          })}
         </div>
       )}
 
