@@ -17,6 +17,24 @@
   height: auto !important;
 }
 
+/* Overlay/Modal State - Light Mode */
+.uppy-DashboardContent-bar {
+  background-color: hsl(var(--background)) !important;
+  border-bottom: 1px solid hsl(var(--border)) !important;
+}
+
+.uppy-DashboardContent-title {
+  color: hsl(var(--foreground)) !important;
+}
+
+.uppy-DashboardContent-back {
+  color: hsl(var(--primary)) !important;
+}
+
+.uppy-DashboardContent-panelBody {
+  background-color: hsl(var(--background)) !important;
+}
+
 /* Add Files Drop Zone */
 .uppy-Dashboard-AddFiles,
 [data-uppy-drag-drop-supported=true] .uppy-Dashboard-AddFiles {
@@ -200,6 +218,23 @@
 /* Dark mode overrides */
 .dark .uppy-Dashboard-inner {
   background-color: transparent !important;
+}
+
+.dark .uppy-DashboardContent-bar {
+  background-color: hsl(var(--background)) !important;
+  border-bottom: 1px solid hsl(var(--border)) !important;
+}
+
+.dark .uppy-DashboardContent-title {
+  color: hsl(var(--foreground)) !important;
+}
+
+.dark .uppy-DashboardContent-back {
+  color: hsl(var(--primary)) !important;
+}
+
+.dark .uppy-DashboardContent-panelBody {
+  background-color: hsl(var(--background)) !important;
 }
 
 .dark .uppy-Dashboard-AddFiles,
